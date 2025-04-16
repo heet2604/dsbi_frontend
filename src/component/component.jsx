@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { EyeIcon, EyeOffIcon, Lock, User } from 'lucide-react';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Component = () => {
     const [username, setUsername] = useState("");
@@ -29,10 +30,12 @@ const Component = () => {
             if (user) {
                 setIsLoggedin(true);
                 setCurrentUser(user);
+                toast.success("Welcome back !")
                 // Remove the redirect to keep users on the page
                 // window.location.href = "..."; 
             } else {
                 setError('Invalid username or password');
+                toast.error("Invalid username or password !")
             }
             setIsLoading(false);
         }, 800);
@@ -48,6 +51,7 @@ const Component = () => {
     }, [isLoggedIn]);
 
     const handleLogout = () => {
+        toast.info("Successfully logged out!")
         setIsLoggedin(false);
         setCurrentUser(null);
         setUsername('');
@@ -56,6 +60,7 @@ const Component = () => {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-900 font-sans p-4">
+            <ToastContainer/>
             <div className={`bg-gray-800 bg-opacity-95 backdrop-blur rounded-2xl shadow-xl border border-white/5 text-center ${isLoggedIn ? 'w-full max-w-6xl' : 'w-full max-w-md'} p-8`}>
                 {isLoggedIn ? (
                     <div className="text-center">
