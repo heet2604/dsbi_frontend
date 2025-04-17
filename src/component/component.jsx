@@ -138,7 +138,7 @@ const Component = () => {
                                     value={registerData.name}
                                     onChange={(e) => setRegisterData({...registerData, name: e.target.value})}
                                     required
-                                    placeholder="Your full name"
+                                    placeholder="Your full name "
                                     className="w-full py-3 px-4 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 placeholder-gray-500"
                                 />
                             </div>
