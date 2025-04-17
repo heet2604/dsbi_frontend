@@ -102,14 +102,8 @@ const Component = () => {
 
                         <div className="animate-in opacity-0 translate-y-2 transition-all duration-400 ease-out">
                             <div className="w-full overflow-hidden rounded-lg border border-white/10 bg-black/20 mb-6">
-                                <iframe
-                                    title="OTT Dashboard"
-                                    width="100%"
-                                    height="600"
-                                    src="https://app.powerbi.com/reportEmbed?reportId=bade79cd-1eb4-462f-bb47-459aba106027&autoAuth=true&ctid=23035d1f-133c-44b5-b2ad-b3aef17baaa1"
-                                    allowFullScreen={true}
-                                    className="mx-auto"
-                                ></iframe>
+                            <iframe title="ott dashboard" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=bade79cd-1eb4-462f-bb47-459aba106027&autoAuth=true&ctid=23035d1f-133c-44b5-b2ad-b3aef17baaa1" frameborder="0" allowFullScreen="true">
+                            </iframe>
                             </div>
                         </div>
 
