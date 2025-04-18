@@ -7,7 +7,6 @@ const Component = () => {
     // Login state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
     const [isLoggedIn, setIsLoggedin] = useState(false);
     const [currentUser, setCurrentUser] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +24,6 @@ const Component = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        setError('');
         setIsLoading(true);
 
         try {
@@ -39,7 +37,7 @@ const Component = () => {
                 toast.success("Welcome back!");
             }
         } catch (err) {
-            setError(err.response?.data?.error || 'Login Failed');
+            // Only show toast notification for wrong credentials, don't set error state
             toast.error(err.response?.data?.error || 'Login Failed');
         } finally {
             setIsLoading(false);
@@ -254,12 +252,6 @@ const Component = () => {
                                     </button>
                                 </div>
                             </div>
-
-                            {error && (
-                                <div className="mb-6 p-3 bg-red-500/10 border border-red-500/20 text-red-500 rounded-lg text-center text-sm animate-in opacity-0 translate-y-2 transition-all duration-400 ease-out">
-                                    {error}
-                                </div>
-                            )}
 
                             <button
                                 type="submit"
