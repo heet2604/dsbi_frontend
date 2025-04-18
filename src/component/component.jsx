@@ -29,7 +29,7 @@ const Component = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await axios.post('https://ott-analyzer.onrender.com/login', {
                 username, password
             });
 
@@ -56,7 +56,7 @@ const Component = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/register', {
+            const response = await axios.post('https://ott-analyzer.onrender.com/register', {
                 username: registerData.username,
                 password: registerData.password,
                 name: registerData.name
