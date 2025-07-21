@@ -1,18 +1,24 @@
-# Use Node base image
-FROM node:18-alpine
+# Stage 1: Build React app
+FROM node:18-alpine as build
 
-# Set working directory
 WORKDIR /app
 
-# Install dependencies
 COPY package*.json ./
 RUN npm install
 
-# Copy app code
 COPY . .
+RUN npm run build
 
-# Expose React dev server port
-EXPOSE 3000
+# Stage 2: Serve the built app
+FROM node:18-alpine
 
-# Start the React app
-CMD ["npm", "start"]
+WORKDIR /app
+
+RUN npm install -g serve
+
+COPY --from=build /app/build ./build
+
+EXPOSE 5000
+
+CMD ["serve", "-s", "build", "-l", "5000"]
+
