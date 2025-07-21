@@ -4,7 +4,7 @@ pipeline {
   environment {
     IMAGE_NAME = 'frontend'
     CONTAINER_NAME = 'devops_2'
-    PORT = '3002'
+    PORT = '3000'
   }
 
   stages {
